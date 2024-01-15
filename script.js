@@ -1,5 +1,7 @@
 let arrHabit = [];
-let arrBtn = [];
+let arrBtnRename = [];
+let arrBtnDate = [];
+let arrDateTitle = [];
 
 function newHabit() {
     let divHabitsPos = document.querySelector('.habits');
@@ -14,13 +16,33 @@ function newHabit() {
     arrHabit.push(titleHabit);
 
     let btnRename = document.createElement('button');
-    // btnRename.setAttribute('onclick', 'containerInit()');
     btnRename.setAttribute('onclick','changeTitle()' );
     btnRename.className = 'rename_habit';
-    btnRename.innerHTML = 'Изменить';
+    btnRename.textContent = 'Изменить';
     divHabits.after(btnRename);
-    arrBtn.push(btnRename);
+    arrBtnRename.push(btnRename);
+
+    let btnCreateDate = document.createElement('button');
+    btnCreateDate.setAttribute('onclick', 'startDate()');
+    btnCreateDate.className = 'create_date';
+    btnCreateDate.textContent = 'Установить дату';
+    btnRename.after(btnCreateDate);
+    arrBtnDate.push(btnCreateDate);
 }
+
+function startDate() {
+    let dateStartPos = document.querySelector('.start_date');
+    let dateTitle = document.createElement('h2');
+    dateTitle.className = 'dateTitle';
+    dateTitle.textContent = 'Дата начала:'
+    dateStartPos.after(dateTitle);
+    arrDateTitle.push(dateTitle);
+    if (arrDateTitle.length > 0) {
+        arrBtnDate[0].style.display = 'none';
+    }
+
+}
+
 
 function title1() {
     arrHabit[0].textContent = prompt();
@@ -63,44 +85,46 @@ function title10() {
 }
 
 function changeTitle () {
-    if (arrBtn[0]) {
-        arrBtn[0].addEventListener('click', title1)
+    if (arrBtnRename[0]) {
+        arrBtnRename[0].addEventListener('click', title1)
     }
-    if (arrBtn[1]) {
-        arrBtn[1].addEventListener('click', title2)
+    if (arrBtnRename[1]) {
+        arrBtnRename[1].addEventListener('click', title2)
     }
-    if (arrBtn[2]) {
-        arrBtn[2].addEventListener('click', title3)
+    if (arrBtnRename[2]) {
+        arrBtnRename[2].addEventListener('click', title3)
     }
-    if (arrBtn[3]) {
-        arrBtn[3].addEventListener('click', title4)
+    if (arrBtnRename[3]) {
+        arrBtnRename[3].addEventListener('click', title4)
     }
-    if (arrBtn[4]) {
-        arrBtn[4].addEventListener('click', title5)
+    if (arrBtnRename[4]) {
+        arrBtnRename[4].addEventListener('click', title5)
     }
-    if (arrBtn[5]) {
-        arrBtn[5].addEventListener('click', title6)
+    if (arrBtnRename[5]) {
+        arrBtnRename[5].addEventListener('click', title6)
     }
-    if (arrBtn[6]) {
-        arrBtn[6].addEventListener('click', title7)
+    if (arrBtnRename[6]) {
+        arrBtnRename[6].addEventListener('click', title7)
     }
-    if (arrBtn[7]) {
-        arrBtn[7].addEventListener('click', title8)
+    if (arrBtnRename[7]) {
+        arrBtnRename[7].addEventListener('click', title8)
     }
-    if (arrBtn[8]) {
-        arrBtn[8].addEventListener('click', title9)
+    if (arrBtnRename[8]) {
+        arrBtnRename[8].addEventListener('click', title9)
     }
-    if (arrBtn[9]) {
-        arrBtn[9].addEventListener('click', title10)
+    if (arrBtnRename[9]) {
+        arrBtnRename[9].addEventListener('click', title10)
     }
 }
 
+
+
 window.changeTitle = changeTitle;
+window.startDate = startDate;
 
 
-
-/*if (arrBtn) {
-    arrBtn[0].addEventListener('click', function () {
+/*if (arrBtnRename) {
+    arrBtnRename[0].addEventListener('click', function () {
         arrHabit[0].textContent = '1';
     })
 }*/
@@ -110,7 +134,7 @@ window.changeTitle = changeTitle;
 })*/
 
 /*window.onload = function () {
-    arrBtn[0].addEventListener('click', function () {
+    arrBtnRename[0].addEventListener('click', function () {
         arrHabit[0].textContent = '1';
     })
 }*/
