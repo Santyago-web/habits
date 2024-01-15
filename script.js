@@ -48,6 +48,22 @@ function startDate() {
     inputStartDate.setAttribute('type', 'date');
     inputStartDate.className = 'input_start_date';
     dateTitle.after(inputStartDate);
+
+    let btnPostDays = document.createElement('button');
+    btnPostDays.setAttribute('onclick', 'postDays()');
+    btnPostDays.className = 'post_days';
+    btnPostDays.textContent = 'ОК';
+    inputStartDate.after(btnPostDays);
+}
+
+function postDays() {
+    let amountDaysValue = document.querySelector('.input_start_date').value;
+    let amountDays = document.createElement('span');
+    amountDays.className = 'amount_days';
+    amountDays.textContent = amountDaysValue;
+    let amountDaysPos = document.querySelector('.amount_of_days_title');
+    amountDaysPos.after(amountDays);
+    document.querySelector('.post_days').style.display = 'none';
 }
 
 
@@ -128,6 +144,7 @@ function changeTitle () {
 
 window.changeTitle = changeTitle;
 window.startDate = startDate;
+window.postDays = postDays;
 
 
 /*if (arrBtnRename) {
