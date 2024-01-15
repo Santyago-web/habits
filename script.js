@@ -28,6 +28,9 @@ function newHabit() {
     btnCreateDate.textContent = 'Установить дату';
     btnRename.after(btnCreateDate);
     arrBtnDate.push(btnCreateDate);
+
+
+
 }
 
 function startDate() {
@@ -41,6 +44,10 @@ function startDate() {
         arrBtnDate[0].style.display = 'none';
     }
 
+    let inputStartDate = document.createElement('input');
+    inputStartDate.setAttribute('type', 'date');
+    inputStartDate.className = 'input_start_date';
+    dateTitle.after(inputStartDate);
 }
 
 
