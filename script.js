@@ -1,17 +1,17 @@
-let arrHabit = [];
-let arrBtnRename = [];
-let arrBtnDate = [];
-let arrDateTitle = [];
+let arrHabit = []; // массив привычек
+let arrBtnRename = []; // массив кнопок переименования
+let arrBtnDate = []; // массив кнопок установки даты
+let arrDateTitle = []; // массив заголовка даты
 
 function newHabit() {
-    let divHabitsPos = document.querySelector('.habits');
-    let divHabits = document.createElement('div');
-    divHabits.className = 'habit';
-    divHabitsPos.append(divHabits);
+    let divHabitsPos = document.querySelector('.habits'); // позиция родителя контейнера привычек
+    let divHabits = document.createElement('div'); // создание элемента контейнер привычек
+    divHabits.className = 'habit'; // создание класса для контейнера привычек
+    divHabitsPos.append(divHabits); // добавление контейнера привычек после родителя
 
     let titleHabit = document.createElement('h2');
     titleHabit.className = 'title_habit';
-    titleHabit.innerHTML = 'привычка';
+    titleHabit.textContent = 'привычка';
     divHabits.append(titleHabit);
     arrHabit.push(titleHabit);
 
@@ -58,12 +58,20 @@ function startDate() {
 
 function postDays() {
     let amountDaysValue = document.querySelector('.input_start_date').value;
+    let date = new Date(amountDaysValue);
+    let days = date.getTime();
+    let dateNow = new Date();
+    let difDate = Math.floor((dateNow - days) / 86400000);
     let amountDays = document.createElement('span');
     amountDays.className = 'amount_days';
-    amountDays.textContent = amountDaysValue;
+    amountDays.textContent = difDate.toString();
     let amountDaysPos = document.querySelector('.amount_of_days_title');
     amountDaysPos.after(amountDays);
-    document.querySelector('.post_days').style.display = 'none';
+    let postDaysBtn = document.querySelector('.post_days');
+    postDaysBtn.style.display = 'none';
+
+    let inputStartDate = document.querySelector('.input_start_date');
+    inputStartDate.setAttribute('type', 'text');
 }
 
 
