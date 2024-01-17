@@ -9,20 +9,20 @@ function newHabit() {
     divHabits.className = 'habit'; // создание класса для контейнера привычек
     divHabitsPos.append(divHabits); // добавление контейнера привычек после родителя
 
-    let titleHabit = document.createElement('h2');
+    let titleHabit = document.createElement('h2'); // создание элемента заголовок привычек
     titleHabit.className = 'title_habit';
     titleHabit.textContent = 'привычка';
     divHabits.append(titleHabit);
     arrHabit.push(titleHabit);
 
-    let btnRename = document.createElement('button');
+    let btnRename = document.createElement('button'); // создание элемента кнопка изменения имени привычки
     btnRename.setAttribute('onclick','changeTitle()' );
     btnRename.className = 'rename_habit';
     btnRename.textContent = 'Изменить';
     divHabits.after(btnRename);
     arrBtnRename.push(btnRename);
 
-    let btnCreateDate = document.createElement('button');
+    let btnCreateDate = document.createElement('button'); // создание элемента кнопка установки даты
     btnCreateDate.setAttribute('onclick', 'startDate()');
     btnCreateDate.className = 'create_date';
     btnCreateDate.textContent = 'Установить дату';
@@ -33,10 +33,11 @@ function newHabit() {
 
 }
 
+// функция установки даты
 function startDate() {
-    let dateStartPos = document.querySelector('.start_date');
-    let dateTitle = document.createElement('h2');
-    dateTitle.className = 'dateTitle';
+    let dateStartPos = document.querySelector('.start_date'); // позиция контейнера даты
+    let dateTitle = document.createElement('h2'); // создание элемента заголовок даты начала
+    dateTitle.className = 'date_title';
     dateTitle.textContent = 'Дата начала:'
     dateStartPos.after(dateTitle);
     arrDateTitle.push(dateTitle);
@@ -49,18 +50,19 @@ function startDate() {
     inputStartDate.className = 'input_start_date';
     dateTitle.after(inputStartDate);
 
-    let btnPostDays = document.createElement('button');
+    let btnPostDays = document.createElement('button'); // создание кнопки отправки даты
     btnPostDays.setAttribute('onclick', 'postDays()');
     btnPostDays.className = 'post_days';
     btnPostDays.textContent = 'ОК';
     inputStartDate.after(btnPostDays);
 }
 
+// функция отправки даты (при нажатии кнопки ОК)
 function postDays() {
-    let amountDaysValue = document.querySelector('.input_start_date').value;
-    let date = new Date(amountDaysValue);
+    let amountDaysValue = document.querySelector('.input_start_date').value; // значение введенной даты
+    let date = new Date(amountDaysValue); // перевод введенной информации в дату
     let days = date.getTime();
-    let dateNow = new Date();
+    let dateNow = new Date(); // получение актуальной даты
     let difDate = Math.floor((dateNow - days) / 86400000);
     let amountDays = document.createElement('span');
     amountDays.className = 'amount_days';
@@ -68,10 +70,16 @@ function postDays() {
     let amountDaysPos = document.querySelector('.amount_of_days_title');
     amountDaysPos.after(amountDays);
     let postDaysBtn = document.querySelector('.post_days');
-    postDaysBtn.style.display = 'none';
+    postDaysBtn.style.display = 'none'; // скрываем кнопку установки даты
 
     let inputStartDate = document.querySelector('.input_start_date');
-    inputStartDate.setAttribute('type', 'text');
+    inputStartDate.style.display = 'none'; // скрываем input
+
+    let newStartDateTime = document.createElement('span');
+    newStartDateTime.className = 'new_start_date_time';
+    newStartDateTime.textContent = amountDaysValue.toString();
+    let dateTitlePos = document.querySelector('.date_title');
+    dateTitlePos.after(newStartDateTime);
 }
 
 
