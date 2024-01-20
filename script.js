@@ -1,3 +1,5 @@
+allCocies = document.cookie;
+
 let arrHabit = []; // массив привычек
 let arrBtnRename = []; // массив кнопок переименования
 let arrBtnDate = []; // массив кнопок установки даты
@@ -28,9 +30,6 @@ function newHabit() {
     btnCreateDate.textContent = 'Установить дату';
     btnRename.after(btnCreateDate);
     arrBtnDate.push(btnCreateDate);
-
-
-
 }
 
 // функция установки даты
@@ -85,10 +84,12 @@ function postDays() {
 
 function title1() {
     arrHabit[0].textContent = prompt();
+    localStorage.setItem('habit1', arrHabit[0].textContent);
 }
 
 function title2() {
     arrHabit[1].textContent = prompt();
+    localStorage.setItem('habit2', arrHabit[1].textContent);
 }
 
 function title3() {
@@ -156,8 +157,10 @@ function changeTitle () {
     }
 }
 
-
-
 window.changeTitle = changeTitle;
 window.startDate = startDate;
 window.postDays = postDays;
+
+window.addEventListener('load', () => {
+
+})
