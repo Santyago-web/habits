@@ -1,12 +1,13 @@
-allCocies = document.cookie;
-
+let arrHabitsDiv = [];
 let arrHabit = []; // массив привычек
 let arrBtnRename = []; // массив кнопок переименования
 let arrBtnDate = []; // массив кнопок установки даты
 let arrDateTitle = []; // массив заголовка даты
 
+let divHabitsPos = document.querySelector('.habits'); // позиция родителя контейнера привычек
+
+
 function newHabit() {
-    let divHabitsPos = document.querySelector('.habits'); // позиция родителя контейнера привычек
     let divHabits = document.createElement('div'); // создание элемента контейнер привычек
     divHabits.className = 'habit'; // создание класса для контейнера привычек
     divHabitsPos.append(divHabits); // добавление контейнера привычек после родителя
@@ -21,7 +22,7 @@ function newHabit() {
     btnRename.setAttribute('onclick','changeTitle()' );
     btnRename.className = 'rename_habit';
     btnRename.textContent = 'Изменить';
-    divHabits.after(btnRename);
+    titleHabit.after(btnRename);
     arrBtnRename.push(btnRename);
 
     let btnCreateDate = document.createElement('button'); // создание элемента кнопка установки даты
@@ -30,6 +31,9 @@ function newHabit() {
     btnCreateDate.textContent = 'Установить дату';
     btnRename.after(btnCreateDate);
     arrBtnDate.push(btnCreateDate);
+
+    arrHabitsDiv.push(divHabits.outerHTML.toString());
+    localStorage.setItem('habitsDiv', arrHabitsDiv.join(''));
 }
 
 // функция установки даты
@@ -84,12 +88,12 @@ function postDays() {
 
 function title1() {
     arrHabit[0].textContent = prompt();
-    localStorage.setItem('habit1', arrHabit[0].textContent);
+    // localStorage.setItem('habit1', arrHabit[0].textContent);
 }
 
 function title2() {
     arrHabit[1].textContent = prompt();
-    localStorage.setItem('habit2', arrHabit[1].textContent);
+    // localStorage.setItem('habit2', arrHabit[1].textContent);
 }
 
 function title3() {
@@ -164,3 +168,6 @@ window.postDays = postDays;
 window.addEventListener('load', () => {
 
 })
+
+divHabitsPos.innerHTML = localStorage.getItem('habitsDiv');
+
