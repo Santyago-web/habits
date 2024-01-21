@@ -1,3 +1,5 @@
+'use strict'
+
 let arrHabitsDiv = [],
     arrHabit = [], // массив привычек
     arrBtnRename = [], // массив кнопок переименования
@@ -36,6 +38,8 @@ function newHabit() {
     arrHabitsDiv.push(divHabits.outerHTML.toString());
 
     localStorage.setItem('habitsDiv', arrHabitsDiv.join(''));
+
+    localStorage.setItem('habit1', arrHabit[0].textContent);
 }
 
 // функция установки даты
@@ -96,12 +100,12 @@ function postDays() {
 
 function title1() {
     arrHabit[0].textContent = prompt();
-    // localStorage.setItem('habit1', arrHabit[0].textContent);
+    localStorage.setItem('habit1', arrHabit[0].textContent);
 }
 
 function title2() {
     arrHabit[1].textContent = prompt();
-    // localStorage.setItem('habit2', arrHabit[1].textContent);
+    localStorage.setItem('habit2', arrHabit[1].textContent);
 }
 
 function title3() {
@@ -177,5 +181,7 @@ window.addEventListener('load', () => {
 
 })
 
-divHabitsPos.innerHTML = localStorage.getItem('habitsDiv');
+
+
+// divHabitsPos.innerHTML = localStorage.getItem('habitsDiv');
 
