@@ -15,3 +15,83 @@ main {
 .right {
     width: 60%;
 }
+
+/*.habit1 {
+    display: none;
+}
+
+.habit2 {
+    display: none;
+}
+
+.habit3 {
+    display: none;
+}
+
+.habit4 {
+    display: none;
+}
+
+.habit5 {
+    display: none;
+}
+
+#habit1 {
+    display: block;
+}
+
+#habit2 {
+    display: block;
+}
+
+#habit3 {
+    display: block;
+}
+
+#habit4 {
+    display: block;
+}
+
+#habit5 {
+    display: block;
+}*/
+
+.habit_box1 {
+    display: none;
+}
+
+.habit_box2 {
+    display: none;
+}
+
+.habit_box3 {
+    display: none;
+}
+
+.habit_box4 {
+    display: none;
+}
+
+.habit_box5 {
+    display: none;
+}
+
+#habit_box1 {
+    display: block;
+}
+
+#habit_box2 {
+    display: block;
+}
+
+#habit_box3 {
+    display: block;
+}
+
+#habit_box4 {
+    display: block;
+}
+
+#habit_box5 {
+    display: block;
+}
