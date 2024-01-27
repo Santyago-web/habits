@@ -16,6 +16,22 @@ main {
     width: 60%;
 }
 
+#habit2 {
+    display: none;
+}
+
+#habit3 {
+    display: none;
+}
+
+#habit4 {
+    display: none;
+}
+
+#habit5 {
+    display: none;
+}
+
 /*.habit1 {
     display: none;
 }
